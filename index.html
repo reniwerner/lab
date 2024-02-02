@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Times Tables</title>
+</head>
+<body>
+<h1>Times Tables</h1>
+<div id="timesTables"></div>
+
+<script>
+    const createTables = (factor, delimiter) => {
+        let tables = '';
+
+        for (let i = 1; i <= delimiter; i++) {
+            tables += `${factor} x ${i} = ${factor * i}<br>`;
+        }
+
+        return tables;
+    }
+
+    const allTables = (delimiter) => {
+        let allTablesHTML = '';
+
+        for (let factor = 1; factor <= 12; factor++) {
+            allTablesHTML += `<p>Times Table for ${factor}:</p>`;
+            allTablesHTML += createTables(factor, delimiter) + '<br>';
+        }
+
+        return allTablesHTML;
+    }
+
+    document.querySelector('#timesTables').innerHTML = allTables(12);
+</script>
+
+</body>
+</html>
